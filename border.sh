@@ -13,7 +13,7 @@ FONT_DESC_SIZE=22
 BORDER_SIZE=10
 
 ### Predefiniowany styl ramki ('white', 'black', :] )
-BORDER_THEME='black'
+BORDER_THEME='white'
 
 ### Jakos plikow JPEG
 QUALITY_JPEG=90
@@ -91,7 +91,7 @@ WIDTH=$(identify -format "%[fx:w]" ${INNER_FN})
 
 ### Jezeli jakis opis zrodlowy istnieje to dodajemy miejsce dla niego
 if [ ! -z "${DESTINATION}" ] || [ ! -z "${SOURCE_TXT}" ] ; then
-    convert ${INNER_FN} -density ${DPI_X}x${DPI_Y} -gravity south -background black -splice 0x12 PNG32:${INNER_FN}
+    convert ${INNER_FN} -density ${DPI_X}x${DPI_Y} -gravity south -background ${COLOR_BORDER_OUTER} -splice 0x12 PNG32:${INNER_FN}
 fi
 
 ### Jezeli przeznaczenie istnieje to je dodajemy do zdjecia
